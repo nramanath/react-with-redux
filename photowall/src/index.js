@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
 const tasks = ['Take out the trash', 'Walk the Dog', 'Bathe the baby'];
 
 const element = React.createElement('ol', null,
-    tasks.map((task) => React.createElement('li', null, task))
+    tasks.map((task, index) => React.createElement('li', {key: index}, task))
 );
 
 ReactDOM.render(element, document.getElementById('root')); // the root element is parent div tag created in the index.html file
