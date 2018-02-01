@@ -4,6 +4,12 @@ html {
 
 h1 {
     font-family: 'billabong';
+    text-align: center;
+    font-size: 13rem;
+    font-weight: 100;
+    margin: 2rem 0;
+    letter-spacing: -1px;
+    color: black;
 }
 
 @font-face {

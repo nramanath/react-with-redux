@@ -9,7 +9,7 @@ class Main extends Component {
     render() {
         return (
             <div>
-                <Title title = {'To Do List'}/>
+                <Title title = {'Photowall'}/>
             </div>
         )
     }
