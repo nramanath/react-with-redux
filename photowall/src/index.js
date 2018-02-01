@@ -3,7 +3,7 @@
 // remove all code in index.js
 
 
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './Components/Main';
 
