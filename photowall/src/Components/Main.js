@@ -49,6 +49,13 @@ class Main extends Component {
         console.log('componentDidMount');
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        alert('re-render');
+        console.log(prevState.posts)
+        console.log(this.state)
+
+    }
+
     render() {
         console.log('render');
         return (
