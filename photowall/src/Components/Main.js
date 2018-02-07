@@ -29,10 +29,11 @@ class Main extends Component {
         super()
         this.state = {
             posts: [],
-            screen: 'photos' //addP
+            screen: 'photos' //addPhotos
         }
 
         this.removePhoto = this.removePhoto.bind(this);
+        this.navigate = this.navigate.bind(this);
         console.log('constructor');
     }
 
@@ -43,6 +44,11 @@ class Main extends Component {
         }))
     }
 
+    navigate() {
+        this.setState({
+            screen: 'addPhotos'
+        })
+    }
     componentDidMount() {
         const data = this.SimulateFetchFromDatabaseOrApiCall();
         this.setState({
@@ -67,7 +73,7 @@ class Main extends Component {
                     (
                         <div>
                             <Title title={'Photowall'}/>
-                            <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
+                            <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate}/>
                         </div>
                     )
                 }

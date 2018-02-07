@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 function PhotoWall(props) {
     return (
         <div>
-            <button className="addIcon"></button>
+            <a className="addIcon" onClick={props.onNavigate} href="#AddPhoto"></a>
             <div className="photoGrid">
                 {props.posts.map((post, index) => <Photo post={post} key={index} onRemovePhoto={props.onRemovePhoto}/>)}
             </div>
