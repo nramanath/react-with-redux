@@ -5,6 +5,7 @@
 import React, {Component} from 'react';
 import Title from './Title';
 import PhotoWall from './PhotoWall';
+import AddPhoto from './AddPhoto';
 
 const posts = [{
     id: "0",
@@ -27,7 +28,8 @@ class Main extends Component {
     constructor() {
         super()
         this.state = {
-            posts: []
+            posts: [],
+            screen: 'photos' //addP
         }
 
         this.removePhoto = this.removePhoto.bind(this);
@@ -50,7 +52,7 @@ class Main extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        alert('re-render');
+        // alert('re-render');
         console.log(prevState.posts)
         console.log(this.state)
 
@@ -60,8 +62,23 @@ class Main extends Component {
         console.log('render');
         return (
             <div>
-                <Title title={'Photowall'}/>
-                <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
+                {
+                    this.state.screen === 'photos' &&
+                    (
+                        <div>
+                            <Title title={'Photowall'}/>
+                            <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
+                        </div>
+                    )
+                }
+
+                {
+                    this.state.screen === 'addPhotos' && (
+                        <div>
+                            <AddPhoto/>
+                        </div>
+                    )
+                }
             </div>
         )
     }
