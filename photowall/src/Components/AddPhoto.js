@@ -9,7 +9,16 @@ import React, {Component} from 'react';
 class AddPhoto extends Component {
     render() {
         return (
-            <h1> This is the page where we add photos</h1>
+            <div>
+                <h1>Photowall</h1>
+                <div className="addPhotoForm">
+                    <form>
+                        <input type="text" placeholder="Link"/>
+                        <input type="text" placeholder="Description"/>
+                        <button> POST </button>
+                    </form>
+                </div>
+            </div>
 
         )
     }
