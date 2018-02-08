@@ -42,6 +42,13 @@ class Main extends Component {
         }))
     }
 
+    addPhoto(postSubmitted) {
+        console.log(postSubmitted.description);
+        this.setState((state) => ( {
+            posts: state.posts.concat([postSubmitted])
+        }))
+    }
+
     componentDidMount() {
         const data = this.SimulateFetchFromDatabaseOrApiCall();
         this.setState({
@@ -61,14 +68,23 @@ class Main extends Component {
         console.log('render');
         return (
             <div>
-                <Route exact path="/" render = {
+                <Route exact path="/" render={
                     () => (
                         <div>
                             <Title title={'Photowall'}/>
-                            <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate}/>
+                            <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}
+                                       onNavigate={this.navigate}/>
                         </div>
                     )}/>
-                <Route path="/AddPhotos" component={AddPhoto}/>
+                <Route path="/AddPhotos" render={
+                    ({history}) => (
+                        <AddPhoto onAddPhoto={(addedPost) => {
+                            this.addPhoto(addedPost)
+                            history.push('/')
+                        }
+                        }/>
+                    )
+                }/>
             </div>
         )
     }
